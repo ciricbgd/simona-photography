@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300");
+* {
+  box-sizing: border-box;
+}
+
+/* force scrollbar */
+html {
+  overflow-y: scroll;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+.grid-sizer,
+.member {
+  width: 31.3333333333%;
+}
+
+.member {
+  float: left;
+  margin-bottom: 3%;
+}
+
+.member img {
+  display: block;
+  width: 100%;
+}
+
+.gutter-sizer {
+  width: 3%;
+}
+
+#login-window {
+  width: 75%;
+  margin-top: 80px;
+}
+#login-window * {
+  font-size: 20rem;
+}
+#login-window .form-group .row {
+  margin-bottom: 20px;
+}
+
+#login,
+#register {
+  display: inline;
+  font-size: 30rem;
+  margin: 20px;
+}
+
+#login {
+  float: left;
+}
+
+#register {
+  float: right;
+}
+
+.selected {
+  text-decoration: underline;
+  text-decoration-color: rgba(38, 154, 255, 0.3);
+}
+
+#cancelForm {
+  opacity: 0.4;
+  font-size: 25rem;
+  text-align: center;
+  float: right;
+}
+
+.unselected {
+  opacity: 0.2;
+}
+
+button[type=submit] {
+  width: 100%;
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.remove {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+html {
+  font-size: 6.25%;
+}
+
+body {
+  font-size: 16px;
+  font-size: 16rem;
+}
+
+.cleaner {
+  clear: both;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.container {
+  margin-top: 3vw;
+  min-width: 85%;
+  padding: 0;
+  transform: translateX(-5%);
+}
+
+.grid {
+  width: 70%;
+  float: right;
+}
+
+aside {
+  float: left;
+  width: 28%;
+}
+aside header h1 {
+  font-size: 3vmin;
+  letter-spacing: 1vmin;
+  margin-bottom: 30px;
+}
+aside nav ul {
+  list-style-type: none;
+}
+aside nav ul li p {
+  letter-spacing: 0.5vmin;
+  margin: 0;
+}
+aside .socialmedia {
+  list-style-type: none;
+  display: flex;
+}
+aside .socialmedia li {
+  text-decoration: none;
+  font-size: 25px;
+  margin-right: 20px;
+}
+aside .socialmedia li a {
+  color: black;
+}
+
+/*# sourceMappingURL=main.css.map */
