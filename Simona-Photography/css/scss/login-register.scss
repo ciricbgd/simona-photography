@@ -1,0 +1,72 @@
+#login-window {
+    width: 75%;
+    margin-top: 80px;
+    * {
+        font-size: 20rem;
+    }
+    .form-group {
+        .row {
+            margin-bottom: 20px;
+            .col {}
+        }
+    }
+}
+
+#login,
+#register {
+    display: inline;
+    font-size: 30rem;
+    margin: 20px;
+}
+
+#login {
+    float: left;
+}
+
+#register {
+    float: right;
+}
+
+.selected {
+    text-decoration: underline;
+    text-decoration-color: rgba(38, 154, 255, 0.3);
+}
+
+#cancelForm {
+    opacity: 0.4;
+    font-size: 25rem;
+    text-align: center;
+    float: right;
+}
+
+.unselected {
+    opacity: 0.2;
+}
+
+button[type=submit] {
+    width: 100%;
+}
+
+.unselectable {
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.remove {
+    display: none;
+}
+
+#logout {
+    text-decoration: none;
+    color: black;
+}

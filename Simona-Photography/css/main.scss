@@ -1,0 +1,86 @@
+ @import 'scss/grid';
+ @import 'scss/admin_panel';
+ @import 'scss/login-register';
+ @import url('https://fonts.googleapis.com/css?family=Lato:300');
+ * {
+     margin: 0;
+     padding: 0;
+     font-family: 'Lato', sans-serif;
+ }
+
+ html {
+     font-size: 6.25%;
+ }
+
+ body {
+     font-size: 16px;
+     font-size: 16rem;
+ }
+
+ .cleaner {
+     clear: both;
+ }
+
+ .clickable {
+     cursor: pointer;
+ }
+
+
+ .container {
+     margin-top: 3vw;
+     min-width: 85%;
+     padding: 0;
+     transform: translateX(-5%);
+ }
+
+
+ @media (max-width: 640px) {
+     .container {
+         margin-top: 2vw;
+         min-width: 85%;
+         padding: 1%;
+         transform: translateX(0%);
+     }
+ }
+
+
+ .grid {
+     width: 70%;
+     float: right;
+ }
+
+ aside {
+     float: left;
+     width: 28%;
+
+     header {
+         h1 {
+             font-size: 3vmin;
+             letter-spacing: 1vmin;
+             margin-bottom: 30px;
+         }
+     }
+     nav {
+         ul {
+             list-style-type: none;
+             li {
+                 p {
+                     letter-spacing: 0.5vmin;
+                     margin: 0;
+                 }
+             }
+         }
+     }
+     .socialmedia {
+         list-style-type: none;
+         display: flex;
+         li {
+             text-decoration: none;
+             font-size: 25px;
+             margin-right: 20px;
+             a {
+                 color: black;
+             }
+         }
+     }
+ }
