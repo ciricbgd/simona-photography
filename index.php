@@ -1,122 +1,82 @@
 <?php
 session_start();
 $conn = mysqli_connect("localhost", "root", "", "simona-photography");
+echo '<!DOCTYPE html>
+        <html lang="sr">';
+require_once'views/head.php';
 ?>
-    <!DOCTYPE html>
-    <html lang="sr">
-
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Simona Photography</title>
-        <meta name="description" content="">
-        <!--Describe your website. This will be displayed as description under your website name when searched on google.-->
-        <meta name="keywords" content="">
-        <!--Put keywords for your website. This will make your website more discoverable.-->
-        <link rel="canonical" href="" />
-        <!--This page's url.-->
-        <meta name="author" content="https://plus.google.com/111116356739335627675">
-        <!--This is my google plus page. Not necessary.-->
-        <!--Facebook meta tags-->
-        <meta property="fb:app_id" content="" />
-        <!--Facebook page id.-->
-        <meta property="og:url" content="">
-        <!--This page's url.-->
-        <meta property="og:image" content="">
-        <!--Image url. 1200 x 630 minimum-->
-        <meta property="og:description" content="">
-        <!--Description-->
-        <meta property="og:title" content="">
-        <!--Title of this page.-->
-        <meta property="og:site_name" content="">
-        <!--If this isn't the site's main page. Put the name of the main page here.-->
-        <!--Twitter meta tags-->
-        <meta name="twitter:card" content="">
-        <!--Explains what the card is. You will mostly use an image so put "summary_large_image"-->
-        <meta name="twitter:url" content="">
-        <!--This page's url.-->
-        <meta name="twitter:title" content="">
-        <!--Title.-->
-        <meta name="twitter:description" content="">
-        <!--Description.-->
-        <meta name="twitter:image" content="">
-        <!--Put the same image as for facebook.-->
-        <!--Google plus meta tags-->
-        <meta itemprop="name" content="">
-        <!--Title.-->
-        <meta itemprop="description" content="">
-        <!--Description.-->
-        <meta itemprop="image" content="">
-        <!--Put the same image as for facebook.-->
-        <!--Css-->
-        <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
-        <link rel="stylesheet" href="./css/bootstrap.css">
-        <link rel="stylesheet" href="./css/main.css">
-    </head>
 
     <body>
+
         <div class="container">
-            <aside>
-                <header>
-                    <h1>Simona Photography</h1>
-                </header>
-                <nav>
-                    <ul>
-                        <li>
-                            <p class="clickable">Portraits</p>
-                        </li>
-                        <li>
-                            <p class="clickable">Fashion</p>
-                        </li>
-                        <li>
-                            <p class="clickable">Fairytales</p>
-                        </li>
+            <?php
+            if(isset($_SESSION['role']))
+                {
+                    if($_SESSION['role']==1)
+                    {
+                        include 'views/admin_panel.php';
+                    }
+                }
+            ?>
+                <aside>
+                    <header>
+                        <h1>Simona Photography</h1>
+                    </header>
+                    <nav>
+                        <ul>
+                            <li>
+                                <p class="clickable">Portraits</p>
+                            </li>
+                            <li>
+                                <p class="clickable">Fashion</p>
+                            </li>
+                            <li>
+                                <p class="clickable">Fairytales</p>
+                            </li>
+                        </ul>
+                    </nav>
+                    <ul class="socialmedia">
+                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="#"><span class="fas fa-envelope"></span></a></li>
                     </ul>
-                </nav>
-                <ul class="socialmedia">
-                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                    <li><a href="#"><span class="fas fa-envelope"></span></a></li>
-                </ul>
-                <?php require_once'views/login-register.php';?>
-            </aside>
-            <div class="grid">
-                <div class="grid-sizer"></div>
-                <div class="gutter-sizer"></div>
-                <div class="member">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" />
+                    <?php 
+                
+                require_once'views/login-register.php';
+                
+                if(isset($_SESSION['registered'])){
+                    unset($_SESSION['registered']);
+                    echo 'You have been registered, please log in.<br>';
+                }
+                if(isset($_SESSION['username'])){
+                    echo '<a href="views/logout.php" class="clickable unselectable" id="logout">Logged in as '.$_SESSION['username'].' (Logout)</a>';
+                }
+                ?>
+                </aside>
+                <div class="grid">
+                    <div class="grid-sizer"></div>
+                    <div class="gutter-sizer"></div>
+                    <?php
+                    $query = "SELECT * FROM images;";
+                    $query_result = mysqli_query($conn,$query);
+                    foreach($query_result as $img){
+                        echo '<div class="member">
+                                <img src="img/pictures/'.$img["path"].'.jpg" alt="'.$img["alt"].'"/>
+                            </div>';
+                    }
+                ?>
                 </div>
-                <div class="member">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />
-                </div>
-                <div class="member">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" />
-                </div>
-                <div class="member">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" />
-                </div>
-                <div class="member">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" />
-                </div>
-                <div class="member">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" />
-                </div>
-                <div class="member">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg" />
-                </div>
-                <div class="member">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg" />
-                </div>
-                <div class="member">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg" />
-                </div>
-            </div>
         </div>
         <!--Scripts-->
         <script src="./js/jquery-3.2.1.min.js"></script>
         <script src="./js/masonry.pkgd.min.js"></script>
         <script src="./js/imagesloaded.pkgd.js"></script>
+        <script src="./js/jquery.dm-uploader.min.js"></script>
+        <script src="./js/upload-ui.js"></script>
+        <script src="./js/upload-multiple.js"></script>
+        <script src="./js/upload-config-images.js"></script>
         <script>
+            // layout Masonry image display plugin
             var $grid = $('.grid').masonry({
                 itemSelector: '.member',
                 percentPosition: true,
@@ -129,46 +89,40 @@ $conn = mysqli_connect("localhost", "root", "", "simona-photography");
                 $grid.masonry();
             });
 
+
             $(document).ready(function() {
 
-                //Register / Login
-                $('#login-register').click(function() {
-                    $(this).addClass("remove");
-                    $('#login-window').removeClass("remove");
-                });
-                $('#cancelForm').click(function() {
-                    $('#login-register').removeClass("remove");
-                    $('#login-window').addClass("remove");
-                });
-                $('#login').click(function() {
-                    $(this).removeClass("unselected").addClass("selected");
-                    $('#register').removeClass("selected").addClass("unselected");
-                    $('#register-forms').addClass("remove");
-                    $('#loginorregister').attr('value', 'login');
-                    $('#btnSubmit').html('Login');
-
-                });
-                $('#register').click(function() {
-                    $(this).removeClass("unselected").addClass("selected");
-                    $('#login').removeClass("selected").addClass("unselected");
-                    $('#register-forms').removeClass("remove");
-                    $('#loginorregister').attr('value', 'register');
-                    $('#btnSubmit').html('Register');
-
-                });
-
                 <?php
-                if(isset($password_report) || isset($user_report)){
-                    echo "$('#login-window').removeClass('remove');
-                            $('#login-register').addClass('remove');";
-                }
+                require_once 'js/login-register-script.inc';
                 ?>
-                //
-
 
             });
 
         </script>
+        <script type="text/html" id="files-template">
+            <li class="col col-xl-2 col-md-3 col-sm-6 col-6">
+
+                <img class="" src="https://danielmg.org/assets/image/noimage.jpg?v=v10" alt="Generic placeholder image">
+
+                <div class="media-body mb-1">
+                    <div class="progress mb-2">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                    <input type="text" placeholder="Naslov" class="image_name" name="image_name">
+                    <input type="text" placeholder="Alt" class="image_alt" name="image_alt">
+                    <textarea placeholder="Opis" class="image_description" name="image_description"></textarea>
+                </div>
+            </li>
+        </script>
+
+        <!-- Debug item template -->
+        <script type="text/html" id="debug-template">
+            <li class="list-group-item text-%%color%%"><strong>%%date%%</strong>: %%message%%</li>
+        </script>
+        <?php
+            mysqli_close($conn);
+        ?>
     </body>
 
     </html>

@@ -1,5 +1,7 @@
  @import 'scss/grid';
+ @import 'scss/admin_panel';
  @import 'scss/login-register';
+ @import 'scss/jquery.dm-uploader';
  @import url('https://fonts.googleapis.com/css?family=Lato:300');
  * {
      margin: 0;
@@ -14,6 +16,10 @@
  body {
      font-size: 16px;
      font-size: 16rem;
+     * {
+         font-size: 16px;
+         font-size: 16rem;
+     }
  }
 
  .cleaner {
@@ -24,26 +30,40 @@
      cursor: pointer;
  }
 
+
  .container {
      margin-top: 3vw;
-     min-width: 85%;
+     width: 100%;
+     min-width: 100%;
+     max-width: 100%;
      padding: 0;
-     transform: translateX(-5%);
  }
 
+
+ @media (max-width: 640px) {
+     .container {
+         margin-top: 2vw;
+         min-width: 85%;
+         padding: 1%;
+         transform: translateX(0%);
+     }
+ }
+
+
  .grid {
-     width: 70%;
-     float: right;
+     width: 67%;
+     float: left;
  }
 
  aside {
      float: left;
-     width: 28%;
+     width: 20%;
+     margin-left: 1%;
 
      header {
          h1 {
-             font-size: 3vmin;
-             letter-spacing: 1vmin;
+             font-size: 20rem;
+             letter-spacing: 1.5rem;
              margin-bottom: 30px;
          }
      }
@@ -52,7 +72,8 @@
              list-style-type: none;
              li {
                  p {
-                     letter-spacing: 0.5vmin;
+                     font-size: 17rem;
+                     letter-spacing: 0.5rem;
                      margin: 0;
                  }
              }

@@ -19,23 +19,58 @@ body {
 }
 
 /* ---- .grid-item ---- */
-.grid-sizer,
-.member {
-  width: 31.3333333333%;
-}
+@media (min-width: 576px) {
+  .grid-sizer,
+  .member {
+    width: 100%;
+  }
 
+  .member {
+    float: left;
+    margin-bottom: 5%;
+  }
+
+  .gutter-sizer {
+    width: 0;
+  }
+}
+@media (min-width: 768px) {
+  .grid-sizer,
+  .member {
+    width: 47.5%;
+  }
+
+  .member {
+    float: left;
+    margin-bottom: 5%;
+  }
+
+  .gutter-sizer {
+    width: 5%;
+  }
+}
+@media (min-width: 1200px) {
+  .grid-sizer,
+  .member {
+    width: 31.3333333333%;
+  }
+
+  .member {
+    float: left;
+    margin-bottom: 3%;
+  }
+
+  .gutter-sizer {
+    width: 3%;
+  }
+}
 .member {
   float: left;
-  margin-bottom: 3%;
 }
 
 .member img {
   display: block;
   width: 100%;
-}
-
-.gutter-sizer {
-  width: 3%;
 }
 
 /*# sourceMappingURL=grid.css.map */

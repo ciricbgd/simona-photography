@@ -20,14 +20,53 @@ body {
 }
 
 /* ---- .grid-item ---- */
-.grid-sizer,
-.member {
-  width: 31.3333333333%;
-}
+@media (min-width: 576px) {
+  .grid-sizer,
+  .member {
+    width: 100%;
+  }
 
+  .member {
+    float: left;
+    margin-bottom: 5%;
+  }
+
+  .gutter-sizer {
+    width: 0;
+  }
+}
+@media (min-width: 768px) {
+  .grid-sizer,
+  .member {
+    width: 47.5%;
+  }
+
+  .member {
+    float: left;
+    margin-bottom: 5%;
+  }
+
+  .gutter-sizer {
+    width: 5%;
+  }
+}
+@media (min-width: 1200px) {
+  .grid-sizer,
+  .member {
+    width: 31.3333333333%;
+  }
+
+  .member {
+    float: left;
+    margin-bottom: 3%;
+  }
+
+  .gutter-sizer {
+    width: 3%;
+  }
+}
 .member {
   float: left;
-  margin-bottom: 3%;
 }
 
 .member img {
@@ -35,8 +74,78 @@ body {
   width: 100%;
 }
 
-.gutter-sizer {
-  width: 3%;
+.dm-uploader {
+  border: 0.25rem dashed #A5A5C7;
+  text-align: center;
+}
+
+.dm-uploader.active {
+  border-color: red;
+  border-style: solid;
+}
+
+.admin_panel_title {
+  font-size: 50rem;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.bar {
+  height: 18px;
+  background: green;
+}
+
+#drop-area h3 {
+  font-size: 18rem;
+}
+
+.container_admin_panel {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.container_admin_panel main .row .col h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 30rem;
+  margin-bottom: 25px;
+}
+
+.uploading_images {
+  width: 100%;
+}
+.uploading_images #files {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+}
+.uploading_images #files li {
+  margin-top: 40px;
+}
+.uploading_images #files li img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.uploading_images #files li .progress {
+  height: 15px;
+}
+.uploading_images #files li .progress div {
+  font-size: 10rem;
+}
+.uploading_images #files li input,
+.uploading_images #files li textarea {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-size: 16rem;
+}
+.uploading_images #files li textarea {
+  max-width: 100%;
+  font-size: 14rem;
 }
 
 #login-window {
@@ -104,6 +213,44 @@ button[type=submit] {
   display: none;
 }
 
+#logout {
+  text-decoration: none;
+  color: black;
+}
+
+/* 
+	Uploader: 
+	- These styles are the ones used on the examples. No needed to use it by any means.
+	- It disables user selection to avoid some weird visuals in some browsers
+	- It masks/hides the the file input behind a button
+ */
+.dm-uploader {
+  cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.dm-uploader .btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.dm-uploader .btn input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border: solid transparent;
+  width: 100%;
+  opacity: .0;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -118,6 +265,10 @@ body {
   font-size: 16px;
   font-size: 16rem;
 }
+body * {
+  font-size: 16px;
+  font-size: 16rem;
+}
 
 .cleaner {
   clear: both;
@@ -129,30 +280,41 @@ body {
 
 .container {
   margin-top: 3vw;
-  min-width: 85%;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   padding: 0;
-  transform: translateX(-5%);
 }
 
+@media (max-width: 640px) {
+  .container {
+    margin-top: 2vw;
+    min-width: 85%;
+    padding: 1%;
+    transform: translateX(0%);
+  }
+}
 .grid {
-  width: 70%;
-  float: right;
+  width: 67%;
+  float: left;
 }
 
 aside {
   float: left;
-  width: 28%;
+  width: 20%;
+  margin-left: 1%;
 }
 aside header h1 {
-  font-size: 3vmin;
-  letter-spacing: 1vmin;
+  font-size: 20rem;
+  letter-spacing: 1.5rem;
   margin-bottom: 30px;
 }
 aside nav ul {
   list-style-type: none;
 }
 aside nav ul li p {
-  letter-spacing: 0.5vmin;
+  font-size: 17rem;
+  letter-spacing: 0.5rem;
   margin: 0;
 }
 aside .socialmedia {

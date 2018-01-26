@@ -42,8 +42,20 @@
             $username = $_REQUEST['tbUsername'];
             $password = md5($_REQUEST['tbPassword']);
 
-            $query = "INSERT INTO users VALUES ('', '".$username."', '".$password."', '".$firstname."', '".$lastname."', '".$email."', ".$phone.", 0);";
-            $query_result = mysqli_query($conn,$query);
+            $query_check_username = "SELECT * FROM users WHERE username='".$username."'";
+            $query_check_username_result = mysqli_query($conn, $query_check_username);
+            if(mysqli_num_rows($query_check_username_result)){
+                $user_report='<div class="row">
+                                <div class="col">
+                                <p>That username is already taken.</p>
+                                </div>
+                            </div>';
+            }
+            else{
+                $query = "INSERT INTO users VALUES ('', '".$username."', '".$password."', '".$firstname."', '".$lastname."', '".$email."', ".$phone.", 0);";
+                $query_result = mysqli_query($conn,$query); $_SESSION['registered'] = 1;
+            }
+              
         }
         else if($_REQUEST['type']=='login'){
         $username = $_REQUEST['tbUsername'];
@@ -52,25 +64,27 @@
         $query_result = mysqli_query($conn,$query);
         if(!mysqli_num_rows($query_result)){
             $user_report='<div class="row">
-                <div class="col">
-                <p>That username does not exist.</p>
-                </div>
-            </div>';
+                            <div class="col">
+                            <p>That username does not exist.</p>
+                            </div>
+                        </div>';
         }
-        $user_result = mysqli_fetch_array($query_result);
-        if($password==$user_result['password'])
-        {
-            $_SESSION['username'] = $username;
-            $_SESSION['role'] = $password==$user_result['role'];
-        }
-        else 
-        {
-            $password_report = '<div class="row">
-                <div class="col">
-                <p>That password is wrong.</p>
-                </div>
-            </div>';
-        }
+        else{
+                $user_result = mysqli_fetch_array($query_result);
+                if($password==$user_result['password'])
+                {
+                    $_SESSION['username'] = $username;
+                    $_SESSION['role'] = $user_result['role'];
+                }
+                else 
+                {
+                    $password_report = '<div class="row">
+                        <div class="col">
+                        <p>That password is wrong.</p>
+                        </div>
+                    </div>';
+                }
+            }
     }
 }
         echo '<div class="row">
