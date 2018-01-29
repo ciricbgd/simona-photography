@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "simona-photography");
+require_once'db/conn.php';
 echo '<!DOCTYPE html>
         <html lang="sr">';
 require_once'views/head.php';
@@ -61,7 +61,7 @@ require_once'views/head.php';
                     $query_result = mysqli_query($conn,$query);
                     foreach($query_result as $img){
                         echo '<div class="member">
-                                <img src="img/pictures/'.$img["path"].'.jpg" alt="'.$img["alt"].'"/>
+                                <img src="img/pictures/'.$img["path"].'" alt="'.$img["alt"].'"/>
                             </div>';
                     }
                 ?>
@@ -69,6 +69,8 @@ require_once'views/head.php';
         </div>
         <!--Scripts-->
         <script src="./js/jquery-3.2.1.min.js"></script>
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
         <script src="./js/masonry.pkgd.min.js"></script>
         <script src="./js/imagesloaded.pkgd.js"></script>
         <script src="./js/jquery.dm-uploader.min.js"></script>
@@ -109,9 +111,9 @@ require_once'views/head.php';
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                         </div>
                     </div>
-                    <input type="text" placeholder="Naslov" class="image_name" name="image_name">
-                    <input type="text" placeholder="Alt" class="image_alt" name="image_alt">
-                    <textarea placeholder="Opis" class="image_description" name="image_description"></textarea>
+                    <input type="text" placeholder="Naslov" class="image_name" class="image_name">
+                    <input type="text" placeholder="Alt" class="image_alt" class="image_alt">
+                    <textarea placeholder="Opis" class="image_description" class="image_description"></textarea>
                 </div>
             </li>
         </script>

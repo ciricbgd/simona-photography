@@ -1,7 +1,9 @@
 $(function () {
     $('#drag-and-drop-zone').dmUploader({
         url: 'db/upload.php',
-        maxFileSize: 100000000, // 100 Megs 
+        maxFileSize: 100000000, // 100 Megs
+        auto: false,
+        queue: true,
         allowedTypes: 'image/*',
         extFilter: ["jpg", "jpeg", "png", "gif"],
         onDragEnter: function () {
@@ -68,6 +70,18 @@ $(function () {
         },
         onFileExtError: function (file) {
             ui_add_log('File \'' + file.name + '\' cannot be added: must be an image (extension error)', 'danger');
+        },
+        extraData: function (id) {
+            return {
+                "image_name": $("[id=uploaderFile" + id + "] > .media-body > .image_name").val(),
+                "image_alt": $("[id=uploaderFile" + id + "] > .media-body > .image_alt").val(),
+                "image_description": $("[id=uploaderFile" + id + "] > .media-body > .image_description").val()
+            };
         }
+    });
+
+
+    $('#start_upload').click(function () {
+        $('#drag-and-drop-zone').dmUploader('start');
     });
 });

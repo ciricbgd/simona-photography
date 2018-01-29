@@ -40,6 +40,29 @@
                     font-size: 30rem;
                     margin-bottom: 25px;
                 }
+                #drag-and-drop-zone {
+                    h3 {}
+                    .btn span {
+                        width: 50%;
+                        margin: 0 auto;
+                        padding-top: 4px;
+                        padding-bottom: 4px;
+                    }
+                    #start_upload {
+                        width: 50%;
+                        margin: 0 auto;
+                        padding-top: 4px;
+                        padding-bottom: 4px;
+                    }
+
+                }
+                .dropdown {
+
+                    * {
+                        font-size: 16rem;
+                    }
+
+                }
             }
         }
     }

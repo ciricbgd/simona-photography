@@ -111,6 +111,21 @@ body {
   font-size: 30rem;
   margin-bottom: 25px;
 }
+.container_admin_panel main .row .col #drag-and-drop-zone .btn span {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.container_admin_panel main .row .col #drag-and-drop-zone #start_upload {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.container_admin_panel main .row .col .dropdown * {
+  font-size: 16rem;
+}
 
 .uploading_images {
   width: 100%;
