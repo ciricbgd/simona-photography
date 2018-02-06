@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:300");
 * {
   box-sizing: border-box;
 }
@@ -75,7 +74,7 @@ body {
 }
 
 .dm-uploader {
-  border: 0.25rem dashed #A5A5C7;
+  outline: 0.5rem dashed #A5A5C7;
   text-align: center;
 }
 
@@ -111,20 +110,51 @@ body {
   font-size: 30rem;
   margin-bottom: 25px;
 }
-.container_admin_panel main .row .col #drag-and-drop-zone .btn span {
-  width: 50%;
+.container_admin_panel main .row .col #drag-and-drop-zone .btn,
+.container_admin_panel main .row .col #drag-and-drop-zone #start_upload,
+.container_admin_panel main .row .col #drag-and-drop-zone #odaberi_kategoriju {
+  width: 60%;
   margin: 0 auto;
   padding-top: 4px;
   padding-bottom: 4px;
+  font-size: 15rem;
+  margin-bottom: 15px;
 }
-.container_admin_panel main .row .col #drag-and-drop-zone #start_upload {
-  width: 50%;
+.container_admin_panel main .row .col #drag-and-drop-zone .dropdown .dropdown-menu {
+  width: 60%;
+}
+.container_admin_panel main .row .col #drag-and-drop-zone .dropdown .dropdown-menu label {
+  vertical-align: middle;
+  display: block;
+}
+.container_admin_panel main .row .col #drag-and-drop-zone .dropdown .dropdown-menu label input {
+  transform: scale(1.2);
+  margin-left: 7px;
+  margin-right: 5px;
+  vertical-align: center;
+}
+.container_admin_panel main .row .col .table-striped {
+  outline: 0.5rem solid #A5A5C7;
+}
+.container_admin_panel main .row .col .table-striped thead tr th,
+.container_admin_panel main .row .col .table-striped tbody tr th,
+.container_admin_panel main .row .col .table-striped thead tr td,
+.container_admin_panel main .row .col .table-striped tbody tr td {
+  padding-left: 2rem;
+}
+.container_admin_panel main .row .col .table-striped thead tr th input,
+.container_admin_panel main .row .col .table-striped tbody tr th input,
+.container_admin_panel main .row .col .table-striped thead tr td input,
+.container_admin_panel main .row .col .table-striped tbody tr td input {
+  vertical-align: middle;
   margin: 0 auto;
-  padding-top: 4px;
-  padding-bottom: 4px;
 }
-.container_admin_panel main .row .col .dropdown * {
-  font-size: 16rem;
+.container_admin_panel main .row .col .table-striped td:nth-child(2) {
+  text-align: center;
+}
+.container_admin_panel main .row .col .table-striped tbody .btn {
+  font-size: 15rem;
+  width: 100%;
 }
 
 .uploading_images {
@@ -163,6 +193,55 @@ body {
   font-size: 14rem;
 }
 
+.btn,
+#start_upload,
+#odaberi_kategoriju {
+  border-radius: 2px;
+}
+
+.section_edit_table {
+  margin-top: 50px;
+  width: 35%;
+}
+.section_edit_table * {
+  font-size: 16rem;
+}
+.section_edit_table tr td img {
+  height: 100px;
+  width: 150px;
+  object-fit: cover;
+}
+.section_edit_table tr td textarea {
+  display: block;
+  margin-top: 10px;
+}
+.section_edit_table tr td .dropdown {
+  margin-top: 10px;
+}
+.section_edit_table tr td .dropdown button {
+  width: 198px;
+}
+.section_edit_table tr td .dropdown .dropdown-menu {
+  width: 198px;
+}
+.section_edit_table tr td .dropdown .dropdown-menu label {
+  vertical-align: middle;
+  display: block;
+}
+.section_edit_table tr td .dropdown .dropdown-menu label input {
+  transform: scale(1.2);
+  margin-left: 7px;
+  margin-right: 5px;
+  vertical-align: center;
+}
+.section_edit_table tr td button {
+  display: block;
+  width: 100%;
+}
+.section_edit_table tr td .image_edit {
+  margin-top: 10px;
+}
+
 #login-window {
   width: 75%;
   margin-top: 80px;
@@ -177,7 +256,7 @@ body {
 #login,
 #register {
   display: inline;
-  font-size: 30rem;
+  font-size: 23rem;
   margin: 20px;
 }
 
@@ -266,10 +345,27 @@ button[type=submit] {
   cursor: pointer;
 }
 
+@font-face {
+  font-family: Nobile-Regular;
+  src: url(Nobile-Regular.ttf);
+}
+@font-face {
+  font-family: SpecialElite;
+  src: url(SpecialElite-Regular.ttf);
+}
+@font-face {
+  font-family: Merienda-Regular;
+  src: url(Merienda-Regular.ttf);
+}
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nobile-Regular';
+  font-size: 16rem;
+}
+
+img {
+  pointer-events: none !important;
 }
 
 html {
@@ -320,17 +416,18 @@ aside {
   margin-left: 1%;
 }
 aside header h1 {
-  font-size: 20rem;
-  letter-spacing: 1.5rem;
+  font-size: 30rem;
   margin-bottom: 30px;
 }
 aside nav ul {
   list-style-type: none;
 }
 aside nav ul li p {
-  font-size: 17rem;
-  letter-spacing: 0.5rem;
+  font-size: 20rem;
   margin: 0;
+}
+aside nav ul li p.album_section {
+  padding-left: 15px;
 }
 aside .socialmedia {
   list-style-type: none;

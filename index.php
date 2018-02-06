@@ -20,19 +20,33 @@ require_once'views/head.php';
             ?>
                 <aside>
                     <header>
-                        <h1>Simona Photography</h1>
+                        <h1 class="clickable section_selector" data-section_id="1">Simona Photography</h1>
                     </header>
                     <nav>
                         <ul>
-                            <li>
-                                <p class="clickable">Portraits</p>
-                            </li>
-                            <li>
-                                <p class="clickable">Fashion</p>
-                            </li>
-                            <li>
-                                <p class="clickable">Fairytales</p>
-                            </li>
+                            <?php
+                                $query = "SELECT * FROM sections;";
+                                $query_result = mysqli_query($conn,$query);
+                                foreach($query_result as $section)
+                                {
+                                    if($section["featured"]){
+                                      echo '<li>
+                                                <p class="clickable section_selector" data-section_id='.$section["id"].'>'.$section["name"].'</p>
+                                            </li>';  
+                                    } 
+                                }
+                            echo'<li><p class="clickable" id="album_button">Albums</p></li>';
+                            echo '<li>';
+                                foreach($query_result as $section)
+                                {
+                                   if(!$section["featured"] && $section["name"]!="Main"){
+                                      echo '<li>
+                                                <p class="clickable album_section">'.$section["name"].'</p>
+                                            </li>';  
+                                    } 
+                                }
+                            echo '</li>';
+                            ?>
                         </ul>
                     </nav>
                     <ul class="socialmedia">
@@ -54,54 +68,27 @@ require_once'views/head.php';
                 ?>
                 </aside>
                 <div class="grid">
-                    <div class="grid-sizer"></div>
-                    <div class="gutter-sizer"></div>
-                    <?php
-                    $query = "SELECT * FROM images;";
-                    $query_result = mysqli_query($conn,$query);
-                    foreach($query_result as $img){
-                        echo '<div class="member">
-                                <img src="img/pictures/'.$img["path"].'" alt="'.$img["alt"].'"/>
-                            </div>';
-                    }
-                ?>
+                    <!--Images loaded  here!-->
                 </div>
         </div>
         <!--Scripts-->
         <script src="./js/jquery-3.2.1.min.js"></script>
         <script src="./js/popper.min.js"></script>
         <script src="./js/bootstrap.min.js"></script>
+        <script src='./js/main.js'></script>
         <script src="./js/masonry.pkgd.min.js"></script>
-        <script src="./js/imagesloaded.pkgd.js"></script>
         <script src="./js/jquery.dm-uploader.min.js"></script>
-        <script src="./js/upload-ui.js"></script>
-        <script src="./js/upload-multiple.js"></script>
-        <script src="./js/upload-config-images.js"></script>
         <script>
-            // layout Masonry image display plugin
-            var $grid = $('.grid').masonry({
-                itemSelector: '.member',
-                percentPosition: true,
-                columnWidth: '.grid-sizer',
-                gutter: '.gutter-sizer',
-                horizontalOrder: true
-            });
-            // layout Masonry after each image loads
-            $grid.imagesLoaded().progress(function() {
-                $grid.masonry();
-            });
-
-
+            //Login script
             $(document).ready(function() {
-
                 <?php
-                require_once 'js/login-register-script.inc';
+                require_once 'js/login-register-script.php';
                 ?>
-
             });
 
         </script>
-        <script type="text/html" id="files-template">
+
+        <script type="text/html" id="files-template" src="js/image_template.php">
             <li class="col col-xl-2 col-md-3 col-sm-6 col-6">
 
                 <img class="" src="https://danielmg.org/assets/image/noimage.jpg?v=v10" alt="Generic placeholder image">
@@ -116,11 +103,6 @@ require_once'views/head.php';
                     <textarea placeholder="Opis" class="image_description" class="image_description"></textarea>
                 </div>
             </li>
-        </script>
-
-        <!-- Debug item template -->
-        <script type="text/html" id="debug-template">
-            <li class="list-group-item text-%%color%%"><strong>%%date%%</strong>: %%message%%</li>
         </script>
         <?php
             mysqli_close($conn);

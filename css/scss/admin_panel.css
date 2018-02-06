@@ -1,0 +1,170 @@
+.dm-uploader {
+  outline: 0.5rem dashed #A5A5C7;
+  text-align: center;
+}
+
+.dm-uploader.active {
+  border-color: red;
+  border-style: solid;
+}
+
+.admin_panel_title {
+  font-size: 50rem;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.bar {
+  height: 18px;
+  background: green;
+}
+
+#drop-area h3 {
+  font-size: 18rem;
+}
+
+.container_admin_panel {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.container_admin_panel main .row .col h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 30rem;
+  margin-bottom: 25px;
+}
+.container_admin_panel main .row .col #drag-and-drop-zone .btn,
+.container_admin_panel main .row .col #drag-and-drop-zone #start_upload,
+.container_admin_panel main .row .col #drag-and-drop-zone #odaberi_kategoriju {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 15rem;
+  margin-bottom: 15px;
+}
+.container_admin_panel main .row .col #drag-and-drop-zone .dropdown .dropdown-menu {
+  width: 60%;
+}
+.container_admin_panel main .row .col #drag-and-drop-zone .dropdown .dropdown-menu label {
+  vertical-align: middle;
+  display: block;
+}
+.container_admin_panel main .row .col #drag-and-drop-zone .dropdown .dropdown-menu label input {
+  transform: scale(1.2);
+  margin-left: 7px;
+  margin-right: 5px;
+  vertical-align: center;
+}
+.container_admin_panel main .row .col .table-striped {
+  outline: 0.5rem solid #A5A5C7;
+}
+.container_admin_panel main .row .col .table-striped thead tr th,
+.container_admin_panel main .row .col .table-striped tbody tr th,
+.container_admin_panel main .row .col .table-striped thead tr td,
+.container_admin_panel main .row .col .table-striped tbody tr td {
+  padding-left: 2rem;
+}
+.container_admin_panel main .row .col .table-striped thead tr th input,
+.container_admin_panel main .row .col .table-striped tbody tr th input,
+.container_admin_panel main .row .col .table-striped thead tr td input,
+.container_admin_panel main .row .col .table-striped tbody tr td input {
+  vertical-align: middle;
+  margin: 0 auto;
+}
+.container_admin_panel main .row .col .table-striped td:nth-child(2) {
+  text-align: center;
+}
+.container_admin_panel main .row .col .table-striped tbody .btn {
+  font-size: 15rem;
+  width: 100%;
+}
+
+.uploading_images {
+  width: 100%;
+}
+.uploading_images #files {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+}
+.uploading_images #files li {
+  margin-top: 40px;
+}
+.uploading_images #files li img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.uploading_images #files li .progress {
+  height: 15px;
+}
+.uploading_images #files li .progress div {
+  font-size: 10rem;
+}
+.uploading_images #files li input,
+.uploading_images #files li textarea {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-size: 16rem;
+}
+.uploading_images #files li textarea {
+  max-width: 100%;
+  font-size: 14rem;
+}
+
+.btn,
+#start_upload,
+#odaberi_kategoriju {
+  border-radius: 2px;
+}
+
+.section_edit_table {
+  margin-top: 50px;
+  width: 35%;
+}
+.section_edit_table * {
+  font-size: 16rem;
+}
+.section_edit_table tr td img {
+  height: 100px;
+  width: 150px;
+  object-fit: cover;
+}
+.section_edit_table tr td textarea {
+  display: block;
+  margin-top: 10px;
+}
+.section_edit_table tr td .dropdown {
+  margin-top: 10px;
+}
+.section_edit_table tr td .dropdown button {
+  width: 198px;
+}
+.section_edit_table tr td .dropdown .dropdown-menu {
+  width: 198px;
+}
+.section_edit_table tr td .dropdown .dropdown-menu label {
+  vertical-align: middle;
+  display: block;
+}
+.section_edit_table tr td .dropdown .dropdown-menu label input {
+  transform: scale(1.2);
+  margin-left: 7px;
+  margin-right: 5px;
+  vertical-align: center;
+}
+.section_edit_table tr td button {
+  display: block;
+  width: 100%;
+}
+.section_edit_table tr td .image_edit {
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=admin_panel.css.map */

@@ -1,4 +1,5 @@
 <?php
+require_once '../views/admin_check.php';
 require_once'conn.php';
 header('Content-type:application/json;charset=utf-8');
 
@@ -41,7 +42,20 @@ try {
             $description = $_REQUEST['image_description'];
 
             $query_upload = "INSERT INTO images VALUES ('', '".$display_name."', '".$file_name."', '".$alt."', '".$description."');";
-            $query_upload_result = mysqli_query($conn, $query_upload);
+        
+            if(mysqli_query($conn, $query_upload))
+            {
+                $last_id = mysqli_insert_id($conn);
+                
+                $selected_section=(array) json_decode($_REQUEST['section'], true);
+                
+                foreach($selected_section as $ss){
+                    $query_section = "INSERT INTO section_images VALUES ('', '".$last_id."', '".$ss."')";
+                    $section_image = mysqli_query($conn, $query_section);
+                }   
+                
+            }
+
     }
 
     // All good, send the response
